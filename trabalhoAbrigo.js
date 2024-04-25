@@ -80,7 +80,7 @@ function chooseOption(key) {
         case '1':
             do {
                 registerShelter(database)
-            } while (readlineSync.question('continue registration? Y/N ' ).toUpperCase() === 'Y')
+            } while (readlineSync.question('Continue registration? Y/N ' ).toUpperCase() === 'Y')
             break;
         case '2':
             listShelter(database)
