@@ -1,6 +1,5 @@
 const readlineSync = require('readline-sync');
 
-
 const database = [
     {name: 'Casa do Caminho', address: 'Rua do Amanhecer, 123, Centro', phone: '(11) 1234-5678', capacity: 20 , city: 'Canoas'},
     {name: 'Abrigo Esperança' , address: 'Rua da Solidariedade, 321, Bairro' , phone: '(11) 9876-5432', capacity: 30 , city: 'São Leopoldo'},
@@ -10,16 +9,11 @@ const database = [
 ]
 // Imprimir cabeçalho
 function printHeader() {
-    console.log(`
---------------------
-  SHELTER LISTING:
---------------------
-CODE |         NAME          |                ADDRESS               |       PHONE      |  CAPACITY  | CITY             |
-------------------------------------------------------------------------------------------------------------------------`)
+    console.log(`\n--------------------\n  SHELTER LISTING:\n--------------------\nCODE |         NAME          |                ADDRESS               |       PHONE      |  CAPACITY  | CITY             |\n------------------------------------------------------------------------------------------------------------------------`)
 }
 // Imprimir abrigo
 function printShelter(object, code){
-console.log(`${(code + 1).toString().padEnd(5)}|   ${object.name.padEnd(20)}|   ${object.address.padEnd(35)}|   ${object.phone.padEnd(15)}|   ${object.capacity.toString().padEnd(9)}|   ${object.city.padEnd(15)}|`)
+    console.log(`${(code + 1).toString().padEnd(5)}|   ${object.name.padEnd(20)}|   ${object.address.padEnd(35)}|   ${object.phone.padEnd(15)}|   ${object.capacity.toString().padEnd(9)}|   ${object.city.padEnd(15)}|`)
 }
 // Listar abrigos
 function listShelter(array) {
@@ -60,9 +54,7 @@ function registerShelter(array) {
         capacity : capacity,
         city : city
     }
-    array.push(shelter)
-
-    
+    array.push(shelter)    
     console.log('\nSuccessfully Registered Shelter\n')
 }
 
@@ -74,13 +66,12 @@ function printMenu() {
    4. Exit\n`) 
 }
 
-
 function chooseOption(key) {
     switch (key) {
         case '1':
             do {
                 registerShelter(database)
-            } while (readlineSync.question('Continue registration? Y/N ' ).toUpperCase() === 'Y')
+            } while (readlineSync.question('continue registration? Y/N ' ).toUpperCase() === 'Y')
             break;
         case '2':
             listShelter(database)
