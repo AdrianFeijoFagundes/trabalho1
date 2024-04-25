@@ -42,14 +42,16 @@ function searchShelter(array) {
 //registrar Abrigo
 function registerShelter(array) {
     const name = readlineSync.question("Enter the name of the shelter: ");
-    const address = readlineSync.question("Which address: ");
-    const phone = readlineSync.question("What's the phone: ");
+    const street = readlineSync.question(" Name of the street or avenue: ");
+    const addressNumber = readlineSync.question("Building number: ");
+    const distric = readlineSync.question("Distric: ");
+    const phone = readlineSync.question("What's the phone:  ");
     const capacity = Number(readlineSync.question("What's the capacity of the shelter: "));
     const city = readlineSync.question("What's the city: ");
     
     let shelter = {
         name : name,
-        address : address,
+        address : `${street}, ${addressNumber}, ${distric}`,
         phone : phone,
         capacity : capacity,
         city : city
@@ -84,7 +86,7 @@ function chooseOption(key) {
     }
     if (readlineSync.question('\ncontinue operations? Y/N ' ).toUpperCase() === 'Y') {
         return true
-    } else {    
+    } else {  
         return false  
     }
 }
