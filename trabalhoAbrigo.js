@@ -84,8 +84,7 @@ function chooseOption(key) {
     }
     if (readlineSync.question('\ncontinue operations? Y/N ' ).toUpperCase() === 'Y') {
         return true
-    } else {
-        
+    } else {    
         return false  
     }
 }
