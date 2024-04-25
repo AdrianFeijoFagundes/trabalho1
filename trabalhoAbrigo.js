@@ -12,9 +12,9 @@ const database = [
 function printHeader() {
     console.log(`
 --------------------
-LISTAGEM DE ABRIGOS:
+  SHELTER LISTING:
 --------------------
-CODE |         NAME          |               ENDEREÇO               |       PHONE      |  CAPACITY  | CITY             |
+CODE |         NAME          |                ADDRESS               |       PHONE      |  CAPACITY  | CITY             |
 ------------------------------------------------------------------------------------------------------------------------`)
 }
 // Imprimir abrigo
