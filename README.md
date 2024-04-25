@@ -1,72 +1,58 @@
-# Trabalho 1
+# Trabalho Abrigos
 
-## Hemocentro
+Olá! Você foi contratado para desenvolver um programa em Javascript que ajude a população em situação de rua a encontrar abrigos temporários em dias frios. O programa deve utilizar a função `readline-sync` para receber dados de entrada dos usuários.
 
-Olá! Você foi contratado para desenvolver um sistema de cadastro de doadores de sangue para o Hemocentro da sua cidade, utilizando a linguagem JavaScript e a função `readline-sync` para a entrada de dados.
+O programa deve permitir que o usuário encontre um abrigo temporário na sua cidade, informando a sua localização. Para isso, deve ser criado um banco de dados com informações dos abrigos disponíveis no estado, como nome, endereço, cidade, telefone e capacidade de lotação.
 
-O programa deve permitir o cadastro de doadores e deve conter as seguintes informações: nome, idade, peso, tipo sanguíneo e data da última doação.
+O programa deve ter um menu com as seguintes opções:
 
-Ao acessar o sistema, o usuário deve ser apresentado a um menu com as seguintes opções:
-
-```
-    ===== SISTEMA DE CADASTRO DE DOADORES DE SANGUE =====
-    1. Cadastrar doador
-    2. Listar doadores
-    3. Buscar doador por tipo sanguíneo
-    4. Buscar doador por data da última doação
-    5. Sair
-    Escolha uma opção:
-```
-Ao selecionar uma opção, deve ser chamada uma função que execute a respectiva ação, conforme detalhamento abaixo:
-
-**1. Cadastrar doador:** essa opção permite cadastrar um novo doador no sistema. O programa deve solicitar o nome, a idade, o peso, o tipo sanguíneo e a data da última doação do doador. O sistema deve armazenar essas informações em um objeto e esse objeto em um array de doadores.
-
-**2. Listar doadores:** essa opção lista todos os doadores cadastrados no sistema, mostrando suas informações completas.
-
-Exemplo: 
-```
---------------------
-LISTAGEM DE DOADORES:
---------------------
-NOME             | IDADE | PESO | TIPO SANGUÍNEO | ÚLTIMA DOAÇÃO
------------------------------------------------------------------
-João da Silva    |  25   |  70  |      AB-       |   01/01/2022  
-Maria Santos     |  35   |  65  |      A+        |   03/02/2022  
-José Almeida     |  45   |  80  |      O+        |   10/01/2022  
-Ana Oliveira     |  27   |  58  |      B-        |   22/04/2022  
-Carlos Silva     |  30   |  75  |      A-        |   14/03/2022  
------------------------------------------------------------------
+```markup
+===== ABRIGOS TEMPORÁRIOS =====
+1. Cadastrar abrigo
+2. Listar abrigos
+3. Procurar abrigo
+4. Sair
+Escolha uma opção:
 ```
 
-**3. Buscar doador por tipo sanguíneo:** essa opção permite buscar doadores pelo seu tipo sanguíneo. O programa deve solicitar o tipo sanguíneo desejado e listar todos os doadores com o mesmo tipo sanguíneo.
+Ao selecionar uma opção deve ser chamada uma função que execute a respectiva ação, conforme detalhamento abaixo:
 
-Digite o tipo sanguíneo desejado: A+
+**1. Cadastro de Abrigo:** essa opção permite cadastrar um novo abrigo no sistema. O programa deve solicitar o nome, endereço, telefone e capacidade de lotação do abrigo. Os dados devem ser armazenados em um objeto e este objeto deve ser incluído em um `array` de abrigos.
 
-```
-------------------------
-RESULTADO DA BUSCA:
-------------------------
-NOME             | IDADE | PESO | TIPO SANGUÍNEO | ÚLTIMA DOAÇÃO
------------------------------------------------------------------
-Maria Santos     |  35   |  65  |      A+        |   03/02/2022  
-Carlos Silva     |  30   |  75  |      A-        |   14/03/2022  
------------------------------------------------------------------
-```
-**4. Buscar doador por data da última doação:** essa opção permite buscar doadores que fizeram a última doação antes de uma determinada data. O programa deve solicitar a data desejada e listar todos os doadores que fizeram a última doação antes dessa data.
+**2. Listar Abrigos:** essa opção lista todos os abrigos cadastrados no sistema, mostrando seus códigos, nomes, endereços, telefones e capacidade de lotação. O código é sempre a posição do objeto no `array`.
 
 Exemplo:
 
+```markup
+--------------------
+LISTAGEM DE ABRIGOS:
+--------------------
+CÓDIGO |         NOME         |              ENDEREÇO              |   TELEFONE   |  CAPACIDADE | CIDADE
+---------------------------------------------------------------------------------------------------------
+  001  | Casa do Caminho      | Rua do Amanhecer, 123, Centro      |  (11) 1234-5678  |     20  | Canoas
+  002  | Abrigo Esperança     | Rua da Solidariedade, 321, Bairro  |  (11) 9876-5432  |     30  | São Leopoldo
+  003  | Casa dos Amigos      | Av. da Fraternidade, 456, Centro   |  (11) 5555-4444  |     25  | Novo Hamburgo
+  004  | Abrigo do Bem        | Rua da Esperança, 789, Bairro      |  (11) 7777-8888  |     35  | Canoas
+  005  | Casa dos Anjos       | Av. da Paz, 159, Centro            |  (11) 3333-2222  |     15  | Porto Alegre
+---------------------------------------------------------------------------------------------------------
 ```
-Digite a data desejada (dd/mm/aaaa): 01/03/2024
 
-------------------------
-RESULTADO DA BUSCA:
-------------------------
-NOME             | IDADE | PESO | TIPO SANGUÍNEO | ÚLTIMA DOAÇÃO
------------------------------------------------------------------
-Calito Teves     |  35   |  65  |      A+        |   01/03/2022  
-Carla Maria      |  30   |  75  |      A-        |   01/03/2022  
------------------------------------------------------------------
+**3. Procurar Abrigo:** essa opção permite que o usuário encontre um abrigo temporário na sua cidade, informando a sua localização. O programa deve perguntar ao usuário a sua cidade e mostrar todos os abrigos cadastrados naquela cidade, com suas informações completas, além de informar a disponibilidade de vagas.
+
+Exemplo:
+
+```markup
+Qual cidade você está?
+Canoas
+
+--------------------
+LISTAGEM DE ABRIGOS:
+--------------------
+CÓDIGO |         NOME         |              ENDEREÇO              |   TELEFONE   |  CAPACIDADE | CIDADE
+---------------------------------------------------------------------------------------------------------
+  001  | Casa do Caminho      | Rua do Amanhecer, 123, Centro      |  (11) 1234-5678  |     20  | Canoas
+  004  | Abrigo do Bem        | Rua da Esperança, 789, Bairro      |  (11) 7777-8888  |     35  | Canoas
+---------------------------------------------------------------------------------------------------------
 ```
 
-**5. Sair:** o programa deve encerrar.
+1. **Sair:** o programa deve encerrar seu funcionamento.
