@@ -54,7 +54,7 @@ function searchShelter(array) {
 //registrar Abrigo
 function registerShelter(array) {
     const name = readlineSync.question("Enter the name of the shelter: ");
-    const street = readlineSync.question(" Name of the street or avenue: ");
+    const street = readlineSync.question("Name of the street or avenue: ");
     const addressNumber = readlineSync.question("Building number: ");
     const distric = readlineSync.question("Distric: ");
     const phone = readlineSync.question("What's the phone:  ");
