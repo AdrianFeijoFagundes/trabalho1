@@ -1,11 +1,13 @@
 const readlineSync = require('readline-sync');
 
 const database = [
+    /*
     {name: 'Casa do Caminho', address: 'Rua do Amanhecer, 123, Centro', phone: '(11) 1234-5678', capacity: 20 , city: 'Canoas'},
     {name: 'Abrigo Esperança' , address: 'Rua da Solidariedade, 321, Bairro' , phone: '(11) 9876-5432', capacity: 30 , city: 'São Leopoldo'},
     {name: 'Casa dos Amigos' , address: 'Av. da Fraternidade, 456, Centro', phone: '(11) 5555-4444', capacity: 25, city:  'Novo Hamburgo'},
     {name: 'Abrigo do Bem', address: 'Rua da Esperança, 789, Bairro', phone: '(11) 7777-8888', capacity:  35, city: 'Canoas'},
     {name: 'Casa dos Anjos' , address: 'Av. da Paz, 159, Centro', phone: '(11) 3333-2222', capacity: 15 , city: 'Porto Alegre'}
+    */
 ]
 // Imprimir cabeçalho
 function printHeader() {
@@ -17,9 +19,14 @@ function printShelter(object, code){
 }
 // Listar abrigos
 function listShelter(array) {
-    printHeader()
-    for (let i = 0; i < array.length; i++) {
-        printShelter(array[i], i)
+    if (array.length !== 0) {
+        printHeader()
+        for (let i = 0; i < array.length; i++) {
+            printShelter(array[i], i)
+        }
+    } else {
+        console.log('------------------------------------------------------------------------------------------------------------------------')
+        console.log(`                                                 DATABASE IS EMPTY                                                      `)
     }
     console.log('------------------------------------------------------------------------------------------------------------------------')
 }
@@ -27,12 +34,17 @@ function listShelter(array) {
 function searchShelter(array) {
     const city = readlineSync.question("In which city are you looking for a shelter? ");
     let counter = 0
-    printHeader()
-    for (let i = 0; i < array.length; i++) {
-        if (array[i].city.toUpperCase().includes(city.toUpperCase())) {
-            printShelter(array[i], i)
-            counter++
+    if (array.length !== 0) {
+        printHeader()
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].city.toUpperCase().includes(city.toUpperCase())) {
+                printShelter(array[i], i)
+                counter++
+            }
         }
+    } else {
+        console.log('------------------------------------------------------------------------------------------------------------------------')
+        console.log(`                                                 DATABASE IS EMPTY                                                      `)
     }
     if(counter === 0) {
         console.log(`No results for search: "${city}"`)
@@ -59,7 +71,6 @@ function registerShelter(array) {
     array.push(shelter)    
     console.log('\nSuccessfully Registered Shelter\n')
 }
-
 function printMenu() {
    console.log(`===== TEMPORARY SHELTERS =====
    1. Register Shelter
@@ -67,7 +78,6 @@ function printMenu() {
    3. Search for shelter
    4. Exit\n`) 
 }
-
 function chooseOption(key) {
     switch (key) {
         case '1':
@@ -90,7 +100,6 @@ function chooseOption(key) {
         return false  
     }
 }
-
 function main() {
     let end = true
     while(end) {
